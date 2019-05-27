@@ -1,0 +1,26 @@
+{
+  "name": "verdaccio-github-team",
+  "version": "0.0.1",
+  "description": "Verdaccio authentication plugin with github team access",
+  "main": "lib/index.js",
+  "author": "Max Wan <maxwkh@gmail.com>",
+  "license": "MIT",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib/**"
+  ],
+  "scripts": {
+    "postinstall": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.2",
+    "@types/node-fetch": "^2.3.4",
+    "@verdaccio/types": "^6.1.0",
+    "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}

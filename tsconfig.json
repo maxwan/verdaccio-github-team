@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "declaration": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "outDir": "lib",
+    "target": "esnext"
+  },
+  "include": ["./src"]
+}
