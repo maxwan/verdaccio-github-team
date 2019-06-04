@@ -13,7 +13,7 @@ class Configs implements IConfigs {
 
   set organization(organization: string) {
     if (!organization) {
-      throw new Error('should specify "organization" in config');
+      throw new Error('[Config] Missing "organization" in config.');
     }
 
     this._organization = organization;
@@ -25,7 +25,7 @@ class Configs implements IConfigs {
 
   set token(token: string) {
     if (!token) {
-      throw new Error('should specify "token" in config');
+      throw new Error('[Config] Missing "TOKEN" environment variable.');
     }
 
     this._token = token;
