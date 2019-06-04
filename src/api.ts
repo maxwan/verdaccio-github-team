@@ -16,14 +16,14 @@ async function graphQLPost(query: string, token: string) {
 
   // failed to get response from github API
   if (response.status < 200 || response.status >= 300) {
-    throw new Error(response.statusText);
+    throw new Error(`[Github]: ${response.status} - ${response.statusText}`);
   }
 
   const json = await response.json();
 
   // github API return errors
   if (json.errors) {
-    throw new Error(json.erros);
+    throw new Error(`[Github]: ${json.erros}`);
   }
 
   return json.data;

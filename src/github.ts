@@ -1,13 +1,18 @@
-import { Callback, AuthConf } from '@verdaccio/types';
+import { Callback, PluginOptions, Logger } from '@verdaccio/types';
 import { getTeamListByUser, getUserNameFromToken, parseData } from './api';
 import configs from './configs';
+import { GithubTeamConfig } from './types';
 
 export default class Github {
-  constructor(config: AuthConf) {
-    const { organization, token, paginationCount } = config;
+  private logger: Logger;
+
+  constructor(config: GithubTeamConfig, options: PluginOptions<GithubTeamConfig>) {
+    const { organization = '', token = '', paginationCount } = config;
     const { ORG_NAME, TOKEN } = process.env;
     configs.organization = ORG_NAME || organization;
     configs.token = TOKEN || token;
+
+    this.logger = options.logger;
 
     if (paginationCount) {
       configs.paginationCount = paginationCount;
@@ -27,6 +32,9 @@ export default class Github {
       .then((userName) => getTeamListByUser(userName))
       .then((data) => parseData(data, user))
       .then((teamList) => cb(null, teamList))
-      .catch((error) => cb(error));
+      .catch((error) => {
+        this.logger.error(error);
+        cb(error);
+      });
   }
 }
