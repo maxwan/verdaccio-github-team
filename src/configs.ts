@@ -36,12 +36,7 @@ class Configs implements IConfigs {
   }
 
   set paginationCount(count: number) {
-    if (count > MAX_PAGINATION_COUNT || count <= 0) {
-      this._paginationCount = MAX_PAGINATION_COUNT;
-      return;
-    }
-
-    this._paginationCount = count;
+    this._paginationCount = Math.max(Math.min(count, MAX_PAGINATION_COUNT), MAX_PAGINATION_COUNT);
   }
 
   get paginationCount() {
