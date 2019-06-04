@@ -8,8 +8,8 @@ export default class Github {
 
   constructor(config: GithubTeamConfig, options: PluginOptions<GithubTeamConfig>) {
     const { organization = '', token = '', paginationCount } = config;
-    const { ORG_NAME, TOKEN } = process.env;
-    configs.organization = ORG_NAME || organization;
+    const { TOKEN } = process.env;
+    configs.organization = organization;
     configs.token = TOKEN || token;
 
     this.logger = options.logger;
