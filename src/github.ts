@@ -7,10 +7,10 @@ export default class Github {
   private logger: Logger;
 
   constructor(config: GithubTeamConfig, options: PluginOptions<GithubTeamConfig>) {
-    const { organization = '', token = '', paginationCount } = config;
-    const { TOKEN } = process.env;
+    const { organization = '', paginationCount } = config;
+    const { TOKEN = '' } = process.env;
     configs.organization = organization;
-    configs.token = TOKEN || token;
+    configs.token = TOKEN;
 
     this.logger = options.logger;
 
