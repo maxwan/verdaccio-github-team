@@ -1,4 +1,4 @@
 node_modules
 lib
-
+jest
 yarn-error.log
