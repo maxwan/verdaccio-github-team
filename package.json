@@ -1,6 +1,6 @@
 {
   "name": "verdaccio-github-team",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Verdaccio authentication plugin with github team access",
   "main": "lib/index.js",
   "author": "Max Wan <maxwkh@gmail.com>",
