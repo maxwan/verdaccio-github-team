@@ -23,7 +23,7 @@ async function graphQLPost(query: string, token: string) {
 
   // github API return errors
   if (json.errors) {
-    throw new Error(`[Github] ${json.erros}.`);
+    throw new Error(`[Github]\n${JSON.stringify(json.errors, null, 2)}.`);
   }
 
   return json.data;
@@ -44,7 +44,7 @@ export async function getTeamListByUser(userName: string, { endCursor }: INextPa
   const paginationQuery = `first: ${configs.paginationCount}`;
   const query = JSON.stringify({
     query: `{
-      organization(login: ${configs.organization}) {
+      organization(login: "${configs.organization}") {
         teams(${[paginationQuery, ...teamsQuery].join(', ')}) {
           totalCount
           edges {
